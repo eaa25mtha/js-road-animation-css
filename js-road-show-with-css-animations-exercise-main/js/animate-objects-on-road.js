@@ -9,6 +9,7 @@ DOM elementer
 const getRedCar = document.getElementById("redCar");  //tager fat i bil elementet rød bil, med id "redCar"
 const getPoliceCar = document.getElementById("policeCar");
 const getBlueCar = document.getElementById("blueCar");
+const getTruck = document.getElementById("truck");
 
 const getSun = document.querySelector(".sun");  //tager fat i sol elementet med class "sun" derfor sætter vi også "." på
 const getScene = document.querySelector(".scene");
@@ -61,6 +62,8 @@ if (getSun && getScene) {
         getScene.classList.toggle("night");
     });
 }
+
+
 
 
 

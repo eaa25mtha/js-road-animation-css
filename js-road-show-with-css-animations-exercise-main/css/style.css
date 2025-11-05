@@ -26,6 +26,7 @@
 --off-car1: 200px;
 --off-car2: 200px;
 --off-car3: 200px;
+--off-car4: 200px;
 
 }
 
@@ -84,7 +85,7 @@
 
 /* :before undersøger vi selv - hvad den gør */
 .scene.night .sun:before {
-   content: ""; /*Content undersøger vi selv - hvad hvad den gør*/
+   content: ""; /*Content undersøger vi selv - hvad den gør*/
    position: absolute;
    top: -20px;
    left: 20px;
@@ -126,13 +127,13 @@
    - px for selve billedstørrelsen
    - vw/vh til placering og ALLE animationsafstande
 --------------------------------------------------------- */
-/* car1: venstre mod højre */
+/* car1: den røde bil, kører fra venstre mod højre */
 .car1 {
    position: absolute;
    bottom: 2.8vh;
    width: var(--car-w);
    max-width: 28vw;
-   z-index: 1;
+   z-index: 5;
    left: calc(-1 * var(--off-car1)); /* beregner hvor car1 selectoren skal være udenfor skærmen inden animation kører den ind*/
    animation: car1 18s linear infinite;
 }
@@ -144,15 +145,16 @@
    }
 }
 
-/* car2: højre mod venstre */
+
+/* car2: politibilen, kører fra højre mod venstre */
 .car2 {
    position: absolute;
    bottom: 5vh; /* styrer hvor bilen placeres på vejbanen*/
    width: var(--car-w);
    max-width: 28vw;
+   z-index: 4;
    right: calc(-1 * var(--off-car2));
    animation: car2 8s linear infinite;
-   /* intet z-index så bilen kører bagved de andre*/
 }
 
 @keyframes car2 {
@@ -164,13 +166,14 @@
 }
 
 
-/* car3: venstre → højre */
+
+/* car3: den blå bil, kører fra venstre mod højre */
 .car3 {
   position: absolute;
   bottom: -3.4vh;
   width: var(--car-w);
   max-width: 28vw;
-  z-index: 1;
+  z-index: 10;
   left: calc(-1 * var(--off-car3));
   will-change: transform;
   animation: car3 8s linear infinite;
@@ -180,3 +183,24 @@
   0%   { transform: translateX(0) rotateY(180deg); }
   100% { transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg); }
 }
+
+
+
+/* car4: lastbilen, kører fra højre mod venstre */
+.car4 {
+   position:absolute;
+   bottom: 5vh;
+   width: var(--car-w);
+   max-width: 28vw;
+   z-index: 1;
+   right: calc(-1 * var(--off-car4));
+   animation: car4 10s linear infinite;
+}
+
+@keyframes car4 {
+   0% {transform: translateX(0);} 
+   90%, 100% {
+      transform: translateX(calc(-100vw - var(--off-car4)));
+   }
+}
+
